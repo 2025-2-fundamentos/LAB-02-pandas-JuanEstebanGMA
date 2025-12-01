@@ -23,7 +23,10 @@ def pregunta_09():
     38  38  E   1  1999-09-28  1999
     39  39  E   5  1998-01-26  1998
     """
-
-    df = pd.read_csv("./files/input/tbl0.tsv", sep="\t")
-    df["year"] = pd.to_datetime(df["c3"]).dt.year.astype(str)
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    df["year"] = df["c3"].str[:4]
     return df
+
+
+if __name__ == "__main__":
+    print(pregunta_09())
